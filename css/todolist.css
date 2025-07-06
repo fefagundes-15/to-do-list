@@ -1,0 +1,300 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.05rem;
+  display: flex;
+  background-color: #f5f5fa;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.todo-list__app {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 40rem;
+  max-width: 60rem;
+  margin: auto;
+  overflow: visible;
+}
+
+.todo-add-item__container {
+  background: linear-gradient(135deg, #4b3d8a, #2f2b5f);
+  padding: 3rem 2rem;
+  border-radius: 7px 7px 0 0;
+}
+
+.todo-add-item__container > .heading {
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+}
+
+.todo-add-item {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.add-item{
+    cursor: pointer;
+}
+
+.inputItem {
+  padding: 1.2rem;
+  flex-grow: 1;
+  border-radius: 0.6rem;
+  border: none;
+  font-size: 1.4rem;
+}
+
+.inputItem::placeholder {
+  color: #999;
+}
+
+input[type="submit"] {
+  border: none;
+  background-color: #f5b94f;
+  padding: 1.2rem 2.4rem;
+  margin-left: 1rem;
+  border-radius: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #ffd88f;
+}
+
+.todo-list__container {
+  padding: 2rem;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f8f8fc;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.button-check {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  border: 2px solid #7a6bb0;
+  background: none;
+  position: relative;
+}
+
+.fa-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #7a6bb0;
+}
+
+.fa-check.displayNone {
+  display: none;
+}
+
+.task-name {
+  background-color: #ffffff;
+  padding: 1rem;
+  font-size: 1.4rem;
+  border-radius: 0.6rem;
+}
+
+.fa-edit,
+.fa-trash-alt {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #7a6bb0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.fa-trash-alt {
+  color: #b74c4c;
+}
+
+.fa-edit:hover {
+  color: #4b3d8a;
+  transform: scale(1.2);
+}
+
+.fa-trash-alt:hover {
+  color: #e63946;
+  transform: scale(1.2);
+}
+
+.check-p {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Edit Container */
+.editContainer {
+  position: absolute;
+  z-index: 10;
+  top: 6rem;
+  left: 0;
+  width: 100%;
+  background-color: #e9e6f5;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  display: none;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.editInput {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.3rem;
+  border: 2px solid #4b3d8a;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.editButton,
+.cancelButton {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.editButton {
+  background-color: #4b3d8a;
+  color: #fff;
+}
+
+.cancelButton {
+  background-color: #8a3d3d;
+  color: #fff;
+}
+
+.editButton:hover {
+  background-color: #6b5bbd;
+}
+
+.cancelButton:hover {
+  background-color: #b24a4a;
+}
+
+/* Confirmação elegante */
+.confirmDeleteContainer,
+.confirmCancelContainer {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0eaff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0.8rem;
+  padding: 1.5rem 2rem;
+  z-index: 100;
+  min-width: 24rem;
+  font-size: 1.3rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.confirmDeleteContainer span,
+.confirmCancelContainer span {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.btn-confirm,
+.btn-cancel {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-confirm {
+  background-color: #4b3d8a;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: #8a3d3d;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #6c5ac1;
+}
+
+.btn-cancel:hover {
+  background-color: #ad3939;
+}
+
+.input-error {
+  display: none;
+  color: #f8e4ff;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.input-error.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
